@@ -1,5 +1,18 @@
-/* Archivo Hero.css */
 .productos {
-  padding: 100px 20px;
+  padding: 80px 20px;
   text-align: center;
+  background-color: #fff0fb; /* rosa suave de fondo de sección */
+}
+
+.productos-title {
+  font-size: 2rem;
+  color: #5e3360;
+  margin-bottom: 40px;
+}
+
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px; /* espacio entre las cards */
 }
