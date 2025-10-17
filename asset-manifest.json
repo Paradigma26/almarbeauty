@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/almarbeauty/static/css/main.020f3247.css",
-    "main.js": "/almarbeauty/static/js/main.59c833af.js",
+    "main.css": "/almarbeauty/static/css/main.c095af06.css",
+    "main.js": "/almarbeauty/static/js/main.5990b956.js",
     "static/media/banner.jpg": "/almarbeauty/static/media/banner.2f1fa86db8c1a92ba2b3.jpg",
     "static/media/Set.jpeg": "/almarbeauty/static/media/Set.5360cd148cc26852c844.jpeg",
     "static/media/Parches.jpeg": "/almarbeauty/static/media/Parches.37598d2d11c061b958b4.jpeg",
@@ -9,11 +9,11 @@
     "static/media/CompactoSalome.jpeg": "/almarbeauty/static/media/CompactoSalome.242f6e7e775ee29fa843.jpeg",
     "static/media/Oil.jpeg": "/almarbeauty/static/media/Oil.8822ddf7f228dfafa239.jpeg",
     "index.html": "/almarbeauty/index.html",
-    "main.020f3247.css.map": "/almarbeauty/static/css/main.020f3247.css.map",
-    "main.59c833af.js.map": "/almarbeauty/static/js/main.59c833af.js.map"
+    "main.c095af06.css.map": "/almarbeauty/static/css/main.c095af06.css.map",
+    "main.5990b956.js.map": "/almarbeauty/static/js/main.5990b956.js.map"
   },
   "entrypoints": [
-    "static/css/main.020f3247.css",
-    "static/js/main.59c833af.js"
+    "static/css/main.c095af06.css",
+    "static/js/main.5990b956.js"
   ]
 }
