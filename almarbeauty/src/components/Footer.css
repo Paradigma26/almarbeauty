@@ -1,0 +1,20 @@
+.footer {
+  background-color: #f8f3fa;
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid rgba(150, 100, 200, 0.2);
+  font-family: 'Poppins', sans-serif;
+  cursor: default;
+}
+
+.shuffle-text {
+  font-weight: bold;
+  color: #a26bff;
+  letter-spacing: 1px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.footer:hover .shuffle-text {
+  color: #d49fff;
+}
