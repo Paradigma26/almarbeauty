@@ -174,7 +174,8 @@ body {
 .nb-side.open .nb-list li:nth-child(4) { animation-delay: 0.4s; }
 
 /* === Enlaces del menú === */
-.nb-list a {
+.nb-list a,
+.nb-list .nav-link {
   text-decoration: none;
   color: var(--text-light);
   font-size: 1.35rem;
@@ -187,11 +188,19 @@ body {
   transition: all 0.3s ease;
 }
 
-.nb-list a:hover {
+.nb-list a:hover,
+.nb-list .nav-link:hover {
   background: rgba(167, 139, 250, 0.15);
   color: #fff;
   box-shadow: 0 0 12px rgba(167, 139, 250, 0.25);
   transform: translateX(6px);
+}
+
+.nb-list a.active,
+.nb-list .nav-link.active {
+  background: rgba(167, 139, 250, 0.25);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(167, 139, 250, 0.3);
 }
 
 /* === Animación suave de aparición === */
@@ -211,7 +220,8 @@ body {
   .nb-side {
     width: 300px;
   }
-  .nb-list a {
+  .nb-list a,
+  .nb-list .nav-link {
     font-size: 1.15rem;
     padding: 12px 16px;
   }

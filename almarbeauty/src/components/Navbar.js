@@ -1,55 +1,98 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 import "./Navbar.css";
-import logo from "../images/logo.jpeg";
+import logo from "../images/logo.jpeg"; 
 
 function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setMenuOpen(!menuOpen);
+  };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
   };
 
   return (
     <>
-      {/* --- Barra superior --- */}
+      {/* === NAVBAR === */}
       <nav className="nb-navbar">
         <div className="nb-logo-section">
-          <img src={logo} alt="AlmarBeauty logo" className="nb-logo-img" />
-          <span className="nb-logo-text">AlmarBeauty</span>
+          <img src={logo} alt="Logo" className="nb-logo-img" />
+          <span className="nb-logo-text">Almar Beauty</span>
         </div>
 
         <button
-          className={`nb-hamburger ${isOpen ? "open" : ""}`}
+          className={`nb-hamburger ${menuOpen ? "open" : ""}`}
           onClick={toggleMenu}
-          aria-label="Menu"
         >
           <svg
             className="nb-ham-icon"
-            viewBox="0 0 24 24"
             width="24"
             height="24"
+            viewBox="0 0 24 24"
           >
-            <rect className="r1" x="3" y="6" width="18" height="2" rx="1" />
-            <rect className="r2" x="3" y="11" width="18" height="2" rx="1" />
-            <rect className="r3" x="3" y="16" width="18" height="2" rx="1" />
+            <rect className="r1" y="4" width="24" height="2" rx="1"></rect>
+            <rect className="r2" y="11" width="24" height="2" rx="1"></rect>
+            <rect className="r3" y="18" width="24" height="2" rx="1"></rect>
           </svg>
         </button>
       </nav>
 
-      {/* --- Menú lateral --- */}
-      <div className={`nb-side ${isOpen ? "open" : ""}`}>
+      {/* === OVERLAY (oscurece fondo) === */}
+      <div
+        className={`nb-overlay ${menuOpen ? "visible" : ""}`}
+        onClick={closeMenu}
+      ></div>
+
+      {/* === MENÚ LATERAL === */}
+      <div className={`nb-side ${menuOpen ? "open" : ""}`}>
         <ul className="nb-list">
-          <li><a href="#inicio" onClick={toggleMenu}>Inicio</a></li>
-          <li><a href="#productos" onClick={toggleMenu}>Productos</a></li>
-          <li><a href="#contacto" onClick={toggleMenu}>Contacto</a></li>
+          <li>
+            <Link
+              to="inicio"
+              smooth={true}
+              duration={600}
+              offset={-70}
+              className="nav-link"
+              activeClass="active"
+              spy={true}
+              onClick={closeMenu}
+            >
+              Inicio
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="productos"
+              smooth={true}
+              duration={600}
+              offset={-70}
+              className="nav-link"
+              activeClass="active"
+              spy={true}
+              onClick={closeMenu}
+            >
+              Productos
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="contacto"
+              smooth={true}
+              duration={600}
+              offset={-70}
+              className="nav-link"
+              activeClass="active"
+              spy={true}
+              onClick={closeMenu}
+            >
+              Contacto
+            </Link>
+          </li>
         </ul>
       </div>
-
-      {/* --- Fondo oscuro (overlay) --- */}
-      <div
-        className={`nb-overlay ${isOpen ? "visible" : ""}`}
-        onClick={toggleMenu}
-      ></div>
     </>
   );
 }
