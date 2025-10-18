@@ -1,34 +1,218 @@
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f3b5e8;
-  padding: 15px 30px;
-  position: sticky;
+:root {
+  --purple: #8b5cf6;
+  --accent: #a78bfa;
+  --text-dark: #2d0a57;
+}
+
+/* General */
+body {
+  padding-top: 70px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+}
+
+/* === Navbar fija === */
+.nb-navbar {
+  position: fixed;
   top: 0;
-  z-index: 10;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: #5e3360;
-}
-
-.nav-links {
-  list-style: none;
+  left: 0;
+  right: 0;
+  height: 70px;
   display: flex;
-  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 15px rgba(139, 92, 246, 0.15);
+  z-index: 2000;
 }
 
-.nav-links a {
-  color: #5e3360;
+/* === Logo === */
+.nb-logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nb-logo-img {
+  height: 70px;
+  width: 70px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.nb-logo-img:hover {
+  transform: scale(1.05);
+}
+
+.nb-logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #a78bfa, #d8b4fe, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradientFlow 5s ease infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Botón hamburguesa === */
+.nb-hamburger {
+  border: none;
+  background: rgba(139, 92, 246, 0.08);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  z-index: 2100;
+}
+
+.nb-hamburger:hover {
+  background: rgba(139, 92, 246, 0.15);
+  transform: scale(1.05);
+}
+
+.nb-ham-icon rect {
+  fill: var(--purple);
+  transition: transform 0.35s ease, opacity 0.25s ease;
+  transform-origin: center;
+}
+
+.nb-hamburger.open .r1 {
+  transform: translateY(5px) rotate(45deg);
+}
+.nb-hamburger.open .r2 {
+  opacity: 0;
+}
+.nb-hamburger.open .r3 {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+/* === Overlay === */
+.nb-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  pointer-events: none;
+  transition: background 0.3s ease;
+  z-index: 1900;
+}
+.nb-overlay.visible {
+  background: rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
+}
+
+:root {
+  --purple: #a78bfa;
+  --accent: #c4b5fd;
+  --text-light: #ede9fe;
+  --text-dark: #2d0a57;
+}
+
+/* === Menú lateral mejorado === */
+.nb-side {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 340px;
+  max-width: 92%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: -10px 0 40px rgba(139, 92, 246, 0.25);
+  transition: right 0.45s cubic-bezier(0.25, 1, 0.3, 1);
+  z-index: 2005;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.nb-side.open {
+  right: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(170, 120, 255, 0.25),
+    rgba(210, 160, 255, 0.15),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-left: 1px solid rgba(167, 139, 250, 0.3);
+  box-shadow: -10px 0 45px rgba(167, 139, 250, 0.35);
+}
+
+/* === Lista de enlaces === */
+.nb-list {
+  list-style: none;
+  padding: 0 40px;
+  margin: 0;
+  width: 100%;
+}
+.nb-list li {
+  margin: 28px 0;
+  opacity: 0;
+  transform: translateX(25px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.nb-side.open .nb-list li {
+  animation: slideIn 0.45s forwards;
+}
+.nb-side.open .nb-list li:nth-child(1) { animation-delay: 0.1s; }
+.nb-side.open .nb-list li:nth-child(2) { animation-delay: 0.2s; }
+.nb-side.open .nb-list li:nth-child(3) { animation-delay: 0.3s; }
+.nb-side.open .nb-list li:nth-child(4) { animation-delay: 0.4s; }
+
+/* === Enlaces del menú === */
+.nb-list a {
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: var(--text-light);
+  font-size: 1.35rem;
+  font-weight: 600;
+  display: block;
+  padding: 14px 18px;
+  border-radius: 12px;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 8px rgba(167, 139, 250, 0.4);
+  transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-  color: #c77dff;
+.nb-list a:hover {
+  background: rgba(167, 139, 250, 0.15);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(167, 139, 250, 0.25);
+  transform: translateX(6px);
+}
+
+/* === Animación suave de aparición === */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* === Ajuste responsive === */
+@media (max-width: 520px) {
+  .nb-side {
+    width: 300px;
+  }
+  .nb-list a {
+    font-size: 1.15rem;
+    padding: 12px 16px;
+  }
 }
